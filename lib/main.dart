@@ -57,7 +57,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final ApiService api = ApiService();
   List<Cases> casesList;
+@override
+void initState() {
+    // TODO: implement initState
+    super.initState();
+     loadList();
 
+  }
   @override
   Widget build(BuildContext context) {
     if (casesList == null) {
@@ -78,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         child: Center(
             child: FutureBuilder(
-          future: loadList(),
+          //future: loadList(),
           builder: (context, snapshot) {
             return casesList.length > 0
                 ? CasesList(cases: casesList)
